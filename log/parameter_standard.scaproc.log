@@ -1,0 +1,50 @@
+/* JOBSPLIT: JOBSTARTTIME 27APR2025:09:33:14.93 */
+/* JOBSPLIT: TASKSTARTTIME 27APR2025:09:33:14.94 */
+/* JOBSPLIT: DATASET INPUT SEQ #C00001.CLASS.DATA */
+/* JOBSPLIT: LIBNAME #C00001 V9 'C:\Program Files\SASHome\x86\SASFoundation\9.4\core\sashelp' */
+/* JOBSPLIT: CONCATMEM #C00001 SASHELP */
+/* JOBSPLIT: LIBNAME SASHELP V9 '( 'C:\Program Files\SASHome\x86\SASFoundation\9.4\nls\en\SASCFG' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\core\sashelp' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\aacomp\sashelp' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\af\sashelp' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\cmp\sashelp' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\graph\sashelp' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\spdsclient\sashelp' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\stat\sashelp' )' */
+/* JOBSPLIT: DATASET OUTPUT SEQ WORK.CLASS.DATA */
+/* JOBSPLIT: LIBNAME WORK V9 'C:\Users\frank\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-8692-f91ef53d\contents\SAS Temporary Files\_TD31220_DELL_\Prc2' */
+/* JOBSPLIT: CATALOG OUTPUT WORK.SASMACR.MY_MACRO.MACRO */
+/* JOBSPLIT: LIBNAME WORK V9 'C:\Users\frank\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-8692-f91ef53d\contents\SAS Temporary Files\_TD31220_DELL_\Prc2' */
+/* JOBSPLIT: CATALOG INPUT WORK.SASMACR.MY_MACRO.MACRO */
+/* JOBSPLIT: LIBNAME WORK V9 'C:\Users\frank\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-8692-f91ef53d\contents\SAS Temporary Files\_TD31220_DELL_\Prc2' */
+/* JOBSPLIT: CATALOG OUTPUT WORK.SASMACR.SYSTEMP.MACRO */
+/* JOBSPLIT: LIBNAME WORK V9 'C:\Users\frank\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-8692-f91ef53d\contents\SAS Temporary Files\_TD31220_DELL_\Prc2' */
+/* JOBSPLIT: CATALOG UPDATE WORK.SASMACR.SYSTEMP.MACRO */
+/* JOBSPLIT: LIBNAME WORK V9 'C:\Users\frank\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-8692-f91ef53d\contents\SAS Temporary Files\_TD31220_DELL_\Prc2' */
+/* JOBSPLIT: ELAPSED 13  */
+/* JOBSPLIT: SYSSCP WIN */
+/* JOBSPLIT: PROCNAME DATASTEP */
+/* JOBSPLIT: STEP SOURCE FOLLOWS */
+
+data class;
+  set sashelp.class;
+run;
+
+%macro my_macro;
+  data cars;
+    set sashelp.cars;
+  run;
+%mend my_macro;
+
+/* JOBSPLIT: TASKSTARTTIME 27APR2025:09:33:14.95 */
+/* JOBSPLIT: DATASET INPUT SEQ #C00001.CARS.DATA */
+/* JOBSPLIT: LIBNAME #C00001 V9 'C:\Program Files\SASHome\x86\SASFoundation\9.4\core\sashelp' */
+/* JOBSPLIT: CONCATMEM #C00001 SASHELP */
+/* JOBSPLIT: LIBNAME SASHELP V9 '( 'C:\Program Files\SASHome\x86\SASFoundation\9.4\nls\en\SASCFG' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\core\sashelp' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\aacomp\sashelp' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\af\sashelp' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\cmp\sashelp' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\graph\sashelp' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\spdsclient\sashelp' 'C:\Program Files\SASHome\x86\SASFoundation\9.4\stat\sashelp' )' */
+/* JOBSPLIT: DATASET OUTPUT SEQ WORK.CARS.DATA */
+/* JOBSPLIT: LIBNAME WORK V9 'C:\Users\frank\AppData\Roaming\SAS\EnterpriseGuide\EGTEMP\SEG-8692-f91ef53d\contents\SAS Temporary Files\_TD31220_DELL_\Prc2' */
+/* JOBSPLIT: FILE OUTPUT C:\Projekte\Scaproc\log\parameter_standard.log */
+/* JOBSPLIT: ELAPSED 19  */
+/* JOBSPLIT: PROCNAME DATASTEP */
+/* JOBSPLIT: STEP SOURCE FOLLOWS */
+ data cars;
+ set sashelp.cars;
+ run;
+;
+
+
+/* JOBSPLIT: JOBENDTIME 27APR2025:09:33:14.97 */
+/* JOBSPLIT: END */

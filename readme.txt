@@ -1,0 +1,1 @@
+The software package isn’t portable – it expects to be installed under C:\Projekte\Scaprog. But no worries, you can easily change that in the file sas\init\init.sas.

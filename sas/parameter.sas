@@ -1,5 +1,5 @@
 proc scaproc; 
-   record "c:\temp\scaproc_5.log" ATTR OPENTIMES EXPANDMACROS; 
+   record "C:\Projekte\Scaproc\log\parameter_standard.scaproc.log" /* ATTR OPENTIMES */ EXPANDMACROS; 
 run;
 
 data class;

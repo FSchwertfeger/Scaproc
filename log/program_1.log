@@ -1,0 +1,173 @@
+1                                                          The SAS System                               11:30 Sunday, April 27, 2025
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this 
+         session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M6) 
+      Licensed to ITZEHOER VERSICHERUNGEN, Site 50200695.
+NOTE: This session is executing on the W32_10PRO  platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.1
+
+NOTE: Additional host information:
+
+ W32_10PRO WIN 10.0.26100  Workstation
+
+NOTE: SAS initialization used:
+      real time           48.85 seconds
+      cpu time            0.17 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is C:\Projekte\Scaproc\sas\autoexec.sas.
+
+NOTE: Table WORK.LIBNAMES created, with 0 rows and 1 columns.
+
+NOTE: PROC SQL statements are executed immediately; The RUN statement has no effect.
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: Deleting WORK.LIBNAMES (memtype=DATA).
+NOTE: Deleting WORK.PROFILE (memtype=CATALOG).
+NOTE: File WORK.PROFILE (memtype=CATALOG) cannot be deleted because it is in use.
+NOTE: Deleting WORK.REGSTRY (memtype=ITEMSTOR).
+NOTE: File WORK.REGSTRY (memtype=ITEMSTOR) cannot be deleted because it is in use.
+NOTE: Deleting WORK.SASMACR (memtype=CATALOG).
+NOTE: File WORK.SASMACR (memtype=CATALOG) cannot be deleted because it is in use.
+
+NOTE: PROCEDURE DATASETS used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+2                                        The SAS System              11:30 Sunday, April 27, 2025
+
+      
+
+
+NOTE: There were 0 observations read from the data set SASHELP.VMACRO.
+      WHERE (scope='GLOBAL') and (offset=0) and name not in ('SYSDB', 'SYSDBMSG', 'SYSDBRC', 
+      'SYSSTREAMINGLOG', '_SASPROGRAMFILE') and name not contains 'SYS_SQL_';
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+70        +
+71        +%global env_program env_macro env_log env_logarchiv;
+72        +
+73        +%let env_program=C:\Projekte\Scaproc\sas;
+74        +%let env_macro=C:\Projekte\Scaproc\sas\macro;
+75        +%let env_log=C:\Projekte\Scaproc\log;
+76        +%let env_logarchiv=C:\Projekte\Scaproc\log\archiv;
+77        +
+78        +%include "&env_macro./create_dir.sas";
+SYMBOLGEN:  Macro variable ENV_MACRO resolves to C:\Projekte\Scaproc\sas\macro
+79        +%macro create_dir(base, dir);
+80        +  data _null_;
+81        +    rc = dcreate("&dir.", "&base.");
+82        +  run;
+83        +%mend create_dir;
+84        +%*create_dir(e:/temp, frank);
+NOTE: %INCLUDE (level 2) ending.
+NOTE: %INCLUDE (level 1) resuming.
+85        +
+86        +%create_dir(%sysfunc(pathname(work)), works);
+MLOGIC(CREATE_DIR):  Beginning execution.
+MLOGIC(CREATE_DIR):  Parameter BASE has value C:\Temp\_TD42692_DELL_
+MLOGIC(CREATE_DIR):  Parameter DIR has value works
+MPRINT(CREATE_DIR):   data _null_;
+SYMBOLGEN:  Macro variable DIR resolves to works
+SYMBOLGEN:  Macro variable BASE resolves to C:\Temp\_TD42692_DELL_
+MPRINT(CREATE_DIR):   rc = dcreate("works", "C:\Temp\_TD42692_DELL_");
+MPRINT(CREATE_DIR):   run;
+
+INFO: Character variables have defaulted to a length of 200 at the places given by: (Line):(Column). Truncation can result.
+      86:21    rc
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              310.54k
+      OS Memory           10236.00k
+      Timestamp           04/27/2025 11:31:19 AM
+      Step Count                        5  Switch Count  0
+      
+
+MLOGIC(CREATE_DIR):  Ending execution.
+87        +libname works spde "%sysfunc(pathname(work))/works";
+NOTE: Libref WORKS was successfully assigned as follows: 
+      Engine:        SPDE 
+      Physical Name: C:\Temp\_TD42692_DELL_\works\
+87       !+                                                    * temp=yes;
+3                                                          The SAS System                               11:30 Sunday, April 27, 2025
+
+88        +
+89        +libname scaproc "C:\Projekte\Scaproc\libname_scaproc";
+NOTE: Libref SCAPROC was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\Projekte\Scaproc\libname_scaproc
+NOTE: %INCLUDE (level 1) ending.
+NOTE: Makro %reset; für Cleanup und Init
+NOTE: Makro %zlms; für lokalen ZLMS Test in h:/zlms
+
+NOTE: AUTOEXEC processing completed.
+
+
+NOTE: PROCEDURE SCAPROC used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              24.12k
+      OS Memory           10236.00k
+      Timestamp           04/27/2025 11:31:19 AM
+      Step Count                        6  Switch Count  0
+      
+
+1          libname tmp "%sysfunc(pathname(work))";
+NOTE: Libref TMP refers to the same physical library as WORK.
+NOTE: Libref TMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\Temp\_TD42692_DELL_
+2          
+3          data tmp.cars;
+4            set sashelp.cars;
+5          run;
+
+NOTE: There were 428 observations read from the data set SASHELP.CARS.
+NOTE: The data set TMP.CARS has 428 observations and 15 variables.
+NOTE: Compressing data set TMP.CARS decreased size by 50.00 percent. 
+      Compressed is 1 pages; un-compressed would require 2 pages.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.01 seconds
+      memory              549.91k
+      OS Memory           10492.00k
+      Timestamp           04/27/2025 11:31:19 AM
+      Step Count                        7  Switch Count  0
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           49.02 seconds
+      user cpu time       0.14 seconds
+      system cpu time     0.21 seconds
+      memory              11707.00k
+      OS Memory           12800.00k
+      Timestamp           04/27/2025 11:31:19 AM
+      Step Count                        7  Switch Count  28
+      
